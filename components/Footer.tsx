@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer> 
             <div> {contact.email} </div>
-            <div> {contact.linkedin} </div>
+            <a href={contact.linkedin}> {contact.linkedin} </a>
             <div> {contact.phoneNumber} </div>
         </footer>
     );
