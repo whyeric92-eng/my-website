@@ -91,7 +91,7 @@ function TimelineCard({
 
 export default function About() {
   return (
-    <div className="mx-auto max-w-2xl space-y-12">
+    <div className="mx-auto max-w-3xl space-y-12">
       <section className="space-y-3">
         <SectionLabel>About</SectionLabel>
         <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
