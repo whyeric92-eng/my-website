@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Calendar } from "lucide-react";
+import { Calendar, ExternalLink } from "lucide-react";
 
 export default function TimelineCard({
   icon,
@@ -9,14 +9,16 @@ export default function TimelineCard({
   bullets,
   renderBullet = (bullet: string) => bullet,
   tags,
+  links,
 }: {
   icon: ReactNode;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   duration: string;
   bullets: string[];
   renderBullet?: (bullet: string) => ReactNode;
   tags?: string[];
+  links?: { label: string; href: string }[];
 }) {
   return (
     <div className="relative">
@@ -26,7 +28,9 @@ export default function TimelineCard({
           <span className="text-accent">{icon}</span>
           <h3 className="font-medium">{title}</h3>
         </div>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{subtitle}</p>
+        {subtitle && (
+          <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{subtitle}</p>
+        )}
         <p className="mt-1 flex items-center gap-1.5 text-sm text-accent">
           <Calendar className="h-3.5 w-3.5" strokeWidth={1.75} />
           {duration}
@@ -45,6 +49,22 @@ export default function TimelineCard({
               >
                 {tag}
               </span>
+            ))}
+          </div>
+        )}
+        {links && links.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-4">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline"
+              >
+                <ExternalLink className="h-3.5 w-3.5" strokeWidth={1.75} />
+                {link.label}
+              </a>
             ))}
           </div>
         )}
