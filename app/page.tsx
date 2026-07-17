@@ -68,6 +68,12 @@ export default function Home() {
           <p className="max-w-xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
             {profile.tagline}
           </p>
+          <Link
+            href="/about"
+            className="inline-block text-sm font-medium text-[#1E40AF] hover:underline"
+          >
+            Learn more about me →
+          </Link>
           <div className="flex flex-wrap justify-center gap-5 pt-2 sm:justify-start">
             <Link
               href="/internship"
