@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
-import { Calendar, FileText, GraduationCap, Users } from "lucide-react";
+import { FileText, GraduationCap, Users } from "lucide-react";
+import SectionLabel from "@/components/SectionLabel";
+import TimelineCard from "@/components/TimelineCard";
 import { bio, education, communityExperience, hobbies } from "@/data/about";
 
 const bioKeywords = ["AI Companion", "Tanjong Pagar Community Club"];
@@ -28,64 +29,23 @@ function renderHighlightedBio(text: string, keywords: string[]) {
   );
 }
 
-function SectionLabel({ children }: { children: ReactNode }) {
+function renderBioBullet(bullet: string) {
   return (
-    <div className="flex items-center gap-3">
-      <p className="shrink-0 text-base font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
-        {children}
-      </p>
-      <div className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
-    </div>
-  );
-}
-
-function TimelineCard({
-  icon,
-  title,
-  subtitle,
-  duration,
-  bullets,
-}: {
-  icon: ReactNode;
-  title: string;
-  subtitle: string;
-  duration: string;
-  bullets: string[];
-}) {
-  return (
-    <div className="relative">
-      <span className="absolute -left-[29px] top-2 h-3 w-3 rounded-full border-2 border-background bg-accent" />
-      <div className="rounded-xl border border-zinc-100 p-5 shadow-sm dark:border-zinc-800">
-        <div className="flex items-center gap-2">
-          <span className="text-accent">{icon}</span>
-          <h3 className="font-medium">{title}</h3>
-        </div>
-        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{subtitle}</p>
-        <p className="mt-1 flex items-center gap-1.5 text-sm text-accent">
-          <Calendar className="h-3.5 w-3.5" strokeWidth={1.75} />
-          {duration}
-        </p>
-        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
-          {bullets.map((bullet) => (
-            <li key={bullet}>
-              {bullet}
-              {certificateLinks[bullet]?.map((cert) => (
-                <a
-                  key={cert.label}
-                  href={cert.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-2 inline-flex items-center gap-1 text-xs text-accent hover:underline"
-                >
-                  <FileText className="h-3 w-3" strokeWidth={1.75} />
-                  {cert.label}
-                </a>
-              ))}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <>
+      {bullet}
+      {certificateLinks[bullet]?.map((cert) => (
+        <a
+          key={cert.label}
+          href={cert.href}
+          target="_blank"
+          rel="noreferrer"
+          className="ml-2 inline-flex items-center gap-1 text-xs text-accent hover:underline"
+        >
+          <FileText className="h-3 w-3" strokeWidth={1.75} />
+          {cert.label}
+        </a>
+      ))}
+    </>
   );
 }
 
@@ -108,6 +68,7 @@ export default function About() {
             subtitle={education.degree}
             duration={education.duration}
             bullets={education.details}
+            renderBullet={renderBioBullet}
           />
         </div>
       </section>
