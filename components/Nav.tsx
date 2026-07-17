@@ -27,10 +27,10 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-3 py-1.5 transition-colors ${
+                className={`relative rounded-full px-3 py-1.5 transition-colors after:absolute after:inset-x-3 after:-bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 ${
                   active
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
-                    : "text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-900"
+                    ? "bg-accent text-accent-foreground"
+                    : "text-zinc-600 hover:text-accent dark:text-zinc-400 dark:hover:text-accent hover:after:scale-x-100"
                 }`}
               >
                 {link.label}
