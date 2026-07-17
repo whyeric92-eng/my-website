@@ -1,44 +1,146 @@
+import type { ReactNode } from "react";
+import { Calendar, FileText, GraduationCap, Users } from "lucide-react";
 import { bio, education, communityExperience, hobbies } from "@/data/about";
 
-export default function About() {
-    return (
-      <div>
-        <h1> About page </h1>
+const bioKeywords = ["AI Companion", "Tanjong Pagar Community Club"];
 
-        <p>{bio}</p>
+const certificateLinks: Record<string, { label: string; href: string }[]> = {
+  "Ranked 1st out of 50 scholars in both Overall and Mathematics assessments during the Bridging Programme.":
+    [
+      { label: "Overall", href: "/certificate-overall.jpg" },
+      { label: "Mathematics", href: "/certificate-math.jpg" },
+    ],
+};
 
-        <h2>Education</h2>
-        <div>
-          <h3>{education.school}</h3>
-          <p>{education.degree}</p>
-          <p>{education.duration}</p>
-          <ul>
-            {education.details.map((detail) => (
-              <li key={detail}>{detail}</li>
-            ))}
-          </ul>
+function renderHighlightedBio(text: string, keywords: string[]) {
+  const pattern = new RegExp(
+    `(${keywords.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`,
+    "g"
+  );
+  return text.split(pattern).map((part, i) =>
+    keywords.includes(part) ? (
+      <strong key={i} className="font-semibold text-zinc-800 dark:text-zinc-200">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
+function SectionLabel({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex items-center gap-3">
+      <p className="shrink-0 text-base font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
+        {children}
+      </p>
+      <div className="h-px flex-1 bg-gradient-to-r from-accent/40 to-transparent" />
+    </div>
+  );
+}
+
+function TimelineCard({
+  icon,
+  title,
+  subtitle,
+  duration,
+  bullets,
+}: {
+  icon: ReactNode;
+  title: string;
+  subtitle: string;
+  duration: string;
+  bullets: string[];
+}) {
+  return (
+    <div className="relative">
+      <span className="absolute -left-[29px] top-2 h-3 w-3 rounded-full border-2 border-background bg-accent" />
+      <div className="rounded-xl border border-zinc-100 p-5 shadow-sm dark:border-zinc-800">
+        <div className="flex items-center gap-2">
+          <span className="text-accent">{icon}</span>
+          <h3 className="font-medium">{title}</h3>
         </div>
-
-        <h2>Community Leadership</h2>
-        {communityExperience.map((experience) => (
-          <div key={experience.organization}>
-            <h3>{experience.organization}</h3>
-            <p>{experience.role}</p>
-            <p>{experience.duration}</p>
-            <ul>
-              {experience.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+        <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{subtitle}</p>
+        <p className="mt-1 flex items-center gap-1.5 text-sm text-accent">
+          <Calendar className="h-3.5 w-3.5" strokeWidth={1.75} />
+          {duration}
+        </p>
+        <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-600 dark:text-zinc-400">
+          {bullets.map((bullet) => (
+            <li key={bullet}>
+              {bullet}
+              {certificateLinks[bullet]?.map((cert) => (
+                <a
+                  key={cert.label}
+                  href={cert.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-2 inline-flex items-center gap-1 text-xs text-accent hover:underline"
+                >
+                  <FileText className="h-3 w-3" strokeWidth={1.75} />
+                  {cert.label}
+                </a>
               ))}
-            </ul>
-          </div>
-        ))}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
-        <h2>Hobbies</h2>
-        <div>
-          {hobbies.map((hobby) => (
-            <span key={hobby}> {hobby} </span>
+export default function About() {
+  return (
+    <div className="mx-auto max-w-2xl space-y-12">
+      <section className="space-y-3">
+        <SectionLabel>About</SectionLabel>
+        <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          {renderHighlightedBio(bio, bioKeywords)}
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <SectionLabel>Education</SectionLabel>
+        <div className="relative space-y-6 border-l-2 border-zinc-200 pl-6 dark:border-zinc-800">
+          <TimelineCard
+            icon={<GraduationCap className="h-4 w-4" strokeWidth={1.75} />}
+            title={education.school}
+            subtitle={education.degree}
+            duration={education.duration}
+            bullets={education.details}
+          />
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <SectionLabel>Community Leadership</SectionLabel>
+        <div className="relative space-y-6 border-l-2 border-zinc-200 pl-6 dark:border-zinc-800">
+          {communityExperience.map((experience) => (
+            <TimelineCard
+              key={experience.organization}
+              icon={<Users className="h-4 w-4" strokeWidth={1.75} />}
+              title={experience.organization}
+              subtitle={experience.role}
+              duration={experience.duration}
+              bullets={experience.bullets}
+            />
           ))}
         </div>
-      </div>
-    );
-  }
+      </section>
+
+      <section className="space-y-4">
+        <SectionLabel>Hobbies</SectionLabel>
+        <div className="flex flex-wrap gap-2">
+          {hobbies.map((hobby) => (
+            <span
+              key={hobby}
+              className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800 dark:bg-blue-950/40 dark:text-blue-300"
+            >
+              {hobby}
+            </span>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
