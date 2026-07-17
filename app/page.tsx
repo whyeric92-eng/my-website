@@ -36,7 +36,7 @@ export default function Home() {
     .join("");
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col items-center gap-10">
+    <div className="mx-auto flex max-w-3xl flex-col items-center gap-10">
       <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:gap-10 sm:text-left">
         {profile.avatar ? (
           <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border border-zinc-200 shadow-lg dark:border-zinc-700">
@@ -56,7 +56,7 @@ export default function Home() {
         )}
 
         <div className="space-y-3">
-          <h1 className="text-5xl font-extrabold tracking-tight">
+          <h1 className="text-4xl font-extrabold tracking-tight">
             {profile.name}
           </h1>
           <p className="text-sm text-zinc-400 dark:text-zinc-600">
