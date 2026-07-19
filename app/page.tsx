@@ -77,14 +77,14 @@ export default function Home() {
           <div className="flex flex-wrap justify-start gap-5 pt-2">
             <Link
               href="/internship"
-              className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#1E40AF] px-5 py-2 text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:bg-[#EFF6FF]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border-[1.5px] border-[#1E40AF] px-5 py-2 text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:bg-[#EFF6FF] sm:w-auto"
             >
               <Briefcase className="h-4 w-4" strokeWidth={1.75} />
               View Internship Experiences
             </Link>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#1E40AF] px-5 py-2 text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:bg-[#EFF6FF]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border-[1.5px] border-[#1E40AF] px-5 py-2 text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:bg-[#EFF6FF] sm:w-auto"
             >
               <Code2 className="h-4 w-4" strokeWidth={1.75} />
               View Projects
