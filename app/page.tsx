@@ -36,10 +36,10 @@ export default function Home() {
     .join("");
 
   return (
-    <div className="mx-auto flex max-w-3xl flex-col items-center gap-10">
-      <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:gap-10 sm:text-left">
+    <div className="mx-auto flex max-w-3xl flex-col items-start gap-10 sm:items-center">
+      <div className="flex flex-col items-start gap-6 text-left sm:flex-row sm:items-start sm:gap-10">
         {profile.avatar ? (
-          <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full border border-zinc-200 shadow-lg dark:border-zinc-700">
+          <div className="h-24 w-24 shrink-0 overflow-hidden rounded-full border border-zinc-200 shadow-lg dark:border-zinc-700 sm:h-32 sm:w-32">
             <Image
               src={profile.avatar}
               alt={profile.name}
@@ -50,7 +50,7 @@ export default function Home() {
             />
           </div>
         ) : (
-          <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-gradient-to-br from-blue-900 to-indigo-600 text-2xl font-semibold text-white shadow-lg dark:border-zinc-700">
+          <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full border border-zinc-200 bg-gradient-to-br from-blue-900 to-indigo-600 text-xl font-semibold text-white shadow-lg dark:border-zinc-700 sm:h-32 sm:w-32 sm:text-2xl">
             {initials}
           </div>
         )}
@@ -74,7 +74,7 @@ export default function Home() {
           >
             Learn more about me →
           </Link>
-          <div className="flex flex-wrap justify-center gap-5 pt-2 sm:justify-start">
+          <div className="flex flex-wrap justify-start gap-5 pt-2">
             <Link
               href="/internship"
               className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#1E40AF] px-5 py-2 text-sm font-medium text-[#1E40AF] transition-colors duration-200 hover:bg-[#EFF6FF]"
@@ -104,12 +104,12 @@ export default function Home() {
         {skills.map((group) => (
           <div
             key={group.category}
-            className="flex flex-col items-center gap-2 sm:flex-row sm:items-baseline sm:gap-4"
+            className="flex flex-col items-start gap-2 sm:flex-row sm:items-baseline sm:gap-4"
           >
-            <p className="w-40 shrink-0 text-center text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600 sm:text-right">
+            <p className="w-40 shrink-0 text-left text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600 sm:text-right">
               {group.category}
             </p>
-            <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
+            <div className="flex flex-wrap justify-start gap-2">
               {group.items.map((skill) => (
                 <span
                   key={skill}
