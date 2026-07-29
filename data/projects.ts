@@ -15,12 +15,13 @@ export const projects: Project[] = [
         bullets: [
             'Developed a cross-platform mobile application using React Native (Expo) to create an interactive AI dialogue system, featuring a historical "Qin Shi Huang" persona.',
             "Designed high-fidelity UI/UX in Figma, creating a modular interface with 5 distinct interaction modes (Historical, Coaching, Emotional Support) to enhance user engagement.",
-            "Integrated and managed multiple RESTful APIs, including LLM and voice services, ensuring seamless data transmission between the mobile client and backend providers.",
-            "Defined and constrained AI conversation boundaries through Prompt Engineering and system-level logic to ensure responses remain within the specific historical persona and safety guidelines.",
-            "Conducted technical research on third-party voice services to select cost-effective solutions for Chinese language processing.",
-            "Facilitated cross-functional communication by managing weekly project syncs, tracking 10+ critical action items to ensure on-time delivery of product milestones.",
+            "Built a FastAPI backend with JWT-based authentication (bcrypt password hashing, token issuance/validation) and a layered service architecture (routes → services → data access) to support user registration, login, and profile management.",
+            "Implemented the data layer with raw SQL first, then migrated it to SQLModel ORM (PostgreSQL) with Alembic-managed migrations — improving type safety and maintainability while retaining hands-on SQL experience.",
+            "Built a /chat/completions endpoint integrating Google's Gemini API via the Agent Development Kit (ADK), using a stateless LlmAgent + async Runner to generate persona-constrained AI responses while normalizing and injecting multi-turn conversation history into each prompt.",
+            "Containerized the backend with Docker to standardize local development and deployment.",
+            "Constrained AI persona behavior via prompt engineering and a stateless agent-session design, isolating conversation state per request while injecting historical context into the LLM prompt.",
         ],
-        skills: ["PostgreSQL", "FastAPI", "React Native", "Figma (Software)"],
+        skills: ["PostgreSQL", "FastAPI", "SQLModel", "Alembic", "React Native", "Figma (Software)", "Docker", "Google Gemini API"],
     },
     {
         title: "Personal Portfolio Website",
