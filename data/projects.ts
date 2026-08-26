@@ -24,6 +24,20 @@ export const projects: Project[] = [
         skills: ["PostgreSQL", "FastAPI", "SQLModel", "Alembic", "React Native", "Figma (Software)", "Docker", "Google Gemini API"],
     },
     {
+        title: "Bookmark Manager",
+        duration: "Jul 2026 - Aug 2026",
+        link: "https://github.com/whyeric92-eng/bookmark-api",
+        liveLink: "https://bookmark-api-omega.vercel.app",
+        bullets: [
+            "Built a FastAPI backend with JWT authentication (pyjwt + bcrypt) and a SQLModel/Alembic-managed PostgreSQL schema, following the same layered architecture pattern as AI Companion.",
+            "Designed a many-to-many relational schema (Bookmark ↔ Tag via join table) with per-user uniqueness constraints and ownership-scoped access control.",
+            "Wrote a pytest suite covering full CRUD and cross-user ownership checks, using SQLAlchemy's nested-transaction/savepoint pattern (join_transaction_mode=\"create_savepoint\") to roll back every test against a real Postgres instance instead of mocking the database.",
+            "Set up a GitHub Actions CI pipeline that spins up a throwaway Postgres service container, runs Alembic migrations, and executes the test suite on every push/PR.",
+            "Deployed the full stack across three free-tier providers (Neon for Postgres, Render for the FastAPI backend, Vercel for the React/Vite frontend), handling production-specific issues: idempotent migrations on boot (no shell access on free tier), CORS origin configuration, and SPA rewrite rules for client-side routing.",
+        ],
+        skills: ["FastAPI", "SQLModel", "Alembic", "PostgreSQL", "pytest", "GitHub Actions", "React", "Vite"],
+    },
+    {
         title: "Personal Portfolio Website",
         duration: "Jul 2026 - Present",
         link: "https://github.com/whyeric92-eng/my-website",
