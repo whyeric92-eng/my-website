@@ -39,7 +39,7 @@ export const projects: Project[] = [
     },
     {
         title: "Personal Portfolio Website",
-        duration: "Jul 2026 - Present",
+        duration: "Jul 2026 - Jul 2026",
         link: "https://github.com/whyeric92-eng/my-website",
         liveLink: "https://my-website-iota-lake.vercel.app/",
         bullets: [
