@@ -1,4 +1,5 @@
-import { Mail, ExternalLink, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { contact } from '@/data/contact';
 
 export default function Footer() {
@@ -18,8 +19,17 @@ export default function Footer() {
                     rel="noreferrer"
                     className="flex items-center gap-1.5 font-medium text-zinc-700 hover:text-accent dark:text-zinc-300"
                 >
-                    <ExternalLink className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
+                    <FaLinkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     LinkedIn
+                </a>
+                <a
+                    href={contact.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-1.5 font-medium text-zinc-700 hover:text-accent dark:text-zinc-300"
+                >
+                    <FaGithub className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    GitHub
                 </a>
                 <div className="flex items-center gap-1.5">
                     <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
