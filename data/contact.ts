@@ -6,8 +6,8 @@ export type Contact = {
 }
 
 export const contact: Contact = {
-    email: "C250227@e.ntu.edu.sg",
-    linkedin: "https://www.linkedin.com/in/haoyu-wei-2673053aa/",
+    email: "whyeric92@gmail.com",
+    linkedin: "https://www.linkedin.com/in/weihaoyu-eric/",
     github: "https://github.com/whyeric92-eng",
     phoneNumber: "+65 93618470",
 }
