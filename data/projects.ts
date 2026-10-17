@@ -3,6 +3,8 @@ export type Project = {
     duration: string;
     link?: string;
     liveLink?: string;
+    appStoreLink?: string;
+    playStoreLink?: string;
     bullets: string[];
     skills: string[];
 };
@@ -12,6 +14,8 @@ export const projects: Project[] = [
         title: "AI-Companion",
         duration: "Dec 2025 - Present",
         link: "https://github.com/AITPCC",
+        appStoreLink: "https://apps.apple.com/app/id6777379501",
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.anonymous.TPCCapp",
         bullets: [
             'Developed a cross-platform mobile application using React Native (Expo) to create an interactive AI dialogue system, featuring a historical "Qin Shi Huang" persona — search "TPCC-app" in the Apple App Store or Google Play.',
             "Designed high-fidelity UI/UX in Figma, creating a modular interface with 5 distinct interaction modes (Historical, Coaching, Emotional Support) to enhance user engagement.",

@@ -20,6 +20,8 @@ export default function Projects() {
               links={[
                 project.link ? { label: "Repository", href: project.link } : null,
                 project.liveLink ? { label: "Live Demo", href: project.liveLink } : null,
+                project.appStoreLink ? { label: "App Store", href: project.appStoreLink } : null,
+                project.playStoreLink ? { label: "Google Play", href: project.playStoreLink } : null,
               ].filter((link) => link !== null)}
             />
           ))}
