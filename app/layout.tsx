@@ -15,9 +15,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://my-website-iota-lake.vercel.app";
+const siteTitle = `${profile.name} (${profile.englishName})`;
+
 export const metadata: Metadata = {
-  title: `${profile.name} (${profile.englishName})`,
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
   description: profile.tagline,
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: siteTitle,
+    title: siteTitle,
+    description: profile.tagline,
+    locale: "en_SG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: profile.tagline,
+  },
 };
 
 export default function RootLayout({
