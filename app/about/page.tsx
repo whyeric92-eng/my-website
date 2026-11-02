@@ -3,7 +3,7 @@ import SectionLabel from "@/components/SectionLabel";
 import TimelineCard from "@/components/TimelineCard";
 import { bio, education, communityExperience, hobbies } from "@/data/about";
 
-const bioKeywords = ["AI Companion", "Tanjong Pagar Community Club"];
+const bioKeywords = ["AI Companion", "Ordering Pte Ltd", "Tanjong Pagar Community Club"];
 
 const certificateLinks: Record<string, { label: string; href: string }[]> = {
   "Ranked 1st out of 50 scholars in both Overall and Mathematics assessments during the Bridging Programme.":
@@ -54,9 +54,11 @@ export default function About() {
     <div className="mx-auto max-w-3xl space-y-12">
       <section className="space-y-3">
         <SectionLabel>About</SectionLabel>
-        <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-          {renderHighlightedBio(bio, bioKeywords)}
-        </p>
+        {bio.map((paragraph) => (
+          <p key={paragraph} className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+            {renderHighlightedBio(paragraph, bioKeywords)}
+          </p>
+        ))}
       </section>
 
       <section className="space-y-4">

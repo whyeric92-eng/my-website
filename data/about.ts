@@ -1,5 +1,9 @@
-export const bio: string =
-    'I am a Computer Science student at Nanyang Technological University (NTU) and a Science & Technology Scholar. As an aspiring full-stack developer, I spearhead the "AI Companion" mobile app, now live on the App Store and Google Play, building the frontend with React Native and a FastAPI backend that integrates the Gemini API. I interned as a Full-Stack Software Engineer at Ordering Pte Ltd, working on a POS admin portal with Laravel and Vue.js. As a proactive leader, I serve as a member of the Tanjong Pagar Community Club and successfully organized an internal football tournament for over 70 players. I am eager to connect with fellow innovators and explore software engineering internship opportunities.';
+export const bio: string[] = [
+    "I am a Computer Science student at Nanyang Technological University (NTU) and a Science & Technology Scholar. I enjoy building full-stack products end to end, and I am increasingly interested in applications powered by large language models.",
+    "During my internship at Ordering Pte Ltd, I worked across the Laravel, Vue.js and PostgreSQL stack of a multi-outlet POS platform, building payment terminal management, a queued catalog import pipeline with real-time progress, and reliability fixes for end-of-shift reporting.",
+    'Outside work, I built and published "AI Companion" (TPCC-app) on the App Store and Google Play: a React Native app backed by a FastAPI service that integrates Google Gemini through the Agent Development Kit, deployed on Google Cloud Run with a CI/CD pipeline. I am currently learning Java and Spring Boot through a personal project.',
+    "Beyond tech, I volunteer with the Tanjong Pagar Community Club, where I organised an internal football tournament for over 70 players.",
+];
 
 export type Education = {
     school: string;
